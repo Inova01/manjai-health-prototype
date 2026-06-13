@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ManjAI | Child Nutrition Risk Screening</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="ManjAI home">
+        <span class="brand-mark">M</span>
+        <span>ManjAI</span>
+      </a>
+      <nav class="nav-links" aria-label="Page sections">
+        <a class="nav-link active" href="#home">Home</a>
+        <a class="nav-link" href="#architecture">Architecture</a>
+        <a class="nav-link" href="#validation">AI Model</a>
+        <a class="nav-link" href="#prototype">Prototype</a>
+        <a class="nav-link" href="#limitations">Scope</a>
+      </nav>
+      <button class="header-login" type="button" data-open-login>
+        <span>Open Dashboard</span>
+      </button>
+    </header>
+
+    <main>
+      <section class="hero" id="home" aria-labelledby="hero-title">
+        <img src="assets/hero.png" alt="ManjAI presentation with children, clinicians, and dashboard" />
+        <div class="hero-copy">
+          <p class="eyebrow">AI-powered child nutrition monitoring</p>
+          <h1 id="hero-title">ManjAI</h1>
+          <p class="hero-line">Preliminary malnutrition-risk screening through software simulation, model validation, and dashboard presentation.</p>
+          <div class="hero-actions">
+            <button class="primary-action" type="button" data-open-login>
+              <span>Open Dashboard</span>
+            </button>
+            <a class="secondary-action" href="#architecture">
+              <span>View System</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="origin-section" aria-labelledby="origin-title">
+        <div class="section-inner origin-grid">
+          <div>
+            <p class="section-kicker">Name and purpose</p>
+            <h2 id="origin-title">From manje to ManjAI</h2>
+          </div>
+          <p>
+            ManjAI is derived from the Haitian Creole word <strong>manje</strong>, meaning food or to eat, combined with <strong>AI</strong>.
+            The prototype presents how artificial intelligence can support preliminary nutrition-risk screening before physical wearable deployment.
+          </p>
+        </div>
+      </section>
+
+      <section class="architecture-section" id="architecture" aria-labelledby="architecture-title">
+        <div class="section-inner">
+          <p class="section-kicker">System architecture</p>
+          <h2 id="architecture-title">From simulated sensing to smarter screening</h2>
+          <p class="section-lead">
+            The proposed wearable architecture remains part of the design. In this prototype, the full workflow is demonstrated through software simulation and dashboard feedback.
+          </p>
+          <div class="wide-visual">
+            <img src="assets/architecture.png" alt="ManjAI system architecture from wearable sensing to AI analysis and dashboard alerts" />
+          </div>
+          <div class="steps-row" aria-label="System workflow">
+            <article>
+              <span>01</span>
+              <h3>Simulated Child Record</h3>
+              <p>Age, anthropometry, MUAC, temperature, heart rate, SpO2, and activity indicators.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>AI Risk Model</h3>
+              <p>Trained classifier estimates Normal, Moderate, or High preliminary risk.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Dashboard Alert</h3>
+              <p>Results are shown with visual status, model confidence, and follow-up guidance.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="validation-section" id="validation" aria-labelledby="validation-title">
+        <div class="section-inner validation-layout">
+          <div>
+            <p class="section-kicker">Preliminary AI validation</p>
+            <h2 id="validation-title">Model evidence for Chapter 5</h2>
+            <p>
+              The experiment compares Logistic Regression, Random Forest, SVM, and MLP on a 5,000-record synthetic preliminary dataset.
+              The selected model prioritizes at-risk recall for screening usefulness.
+            </p>
+          </div>
+          <div class="metric-grid">
+            <article>
+              <span>5,000</span>
+              <p>Generated records</p>
+            </article>
+            <article>
+              <span>1,500</span>
+              <p>Held-out test records</p>
+            </article>
+            <article>
+              <span>0.935</span>
+              <p>MLP at-risk recall</p>
+            </article>
+            <article>
+              <span>3</span>
+              <p>Risk classes</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="prototype-section" id="prototype" aria-labelledby="prototype-title">
+        <div class="section-inner prototype-grid">
+          <div>
+            <p class="section-kicker">Presentation website + dashboard</p>
+            <h2 id="prototype-title">Dashboard available after login</h2>
+            <p>
+              The public website introduces the project. The protected dashboard demonstrates the software simulator used for the thesis prototype.
+            </p>
+            <button class="primary-action compact" type="button" data-open-login>
+              <span>Try Dashboard</span>
+            </button>
+          </div>
+          <div class="preview-frame">
+            <img src="assets/dashboard-preview.png" alt="ManjAI dashboard preview with vital signals and risk alerts" />
+          </div>
+        </div>
+      </section>
+
+      <section class="limitations-section" id="limitations" aria-labelledby="limitations-title">
+        <div class="section-inner">
+          <p class="section-kicker">Academic scope</p>
+          <h2 id="limitations-title">Honest prototype boundary</h2>
+          <div class="scope-list">
+            <article>
+              <h3>Implemented now</h3>
+              <p>Software simulation, dashboard interface, risk classification workflow, and generated Chapter 5 evidence.</p>
+            </article>
+            <article>
+              <h3>Future work</h3>
+              <p>Physical wearable construction, sensor calibration, power testing, bench validation, and clinical validation.</p>
+            </article>
+            <article>
+              <h3>Safe claim</h3>
+              <p>ManjAI supports preliminary screening research. It is not a diagnostic medical device.</p>
+            </article>
+            <article>
+              <h3>Future ManjAI Market</h3>
+              <p>After validation, ManjAI could expand into an AI-assisted nutrition distribution platform for schools, organizations, health centers, and community programmes.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a class="brand" href="#home" aria-label="ManjAI home">
+            <span class="brand-mark">M</span>
+            <span>ManjAI</span>
+          </a>
+          <p>
+            Software-simulation dashboard prototype for preliminary child malnutrition-risk screening research.
+          </p>
+        </div>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="#architecture">Architecture</a>
+          <a href="#validation">AI Model</a>
+          <a href="#prototype">Prototype</a>
+          <a href="#limitations">Scope</a>
+        </nav>
+        <div class="footer-meta">
+          <p><strong>Lawrence Auguste</strong> · Group P-265</p>
+          <p>Mechatronics and Robotics · Chelyabinsk 2026</p>
+          <p>Not a diagnostic medical device.</p>
+        </div>
+      </div>
+    </footer>
+
+    <aside class="login-panel" aria-hidden="true" data-login-panel>
+      <div class="login-card" role="dialog" aria-modal="true" aria-labelledby="login-title">
+        <button class="close-login" type="button" data-close-login aria-label="Close login">x</button>
+        <p class="section-kicker">Secure access</p>
+        <h2 id="login-title">Open ManjAI Dashboard</h2>
+        <form id="loginForm">
+          <label>
+            Email
+            <input id="loginEmail" type="email" value="admin@manjai.local" autocomplete="username" />
+          </label>
+          <label>
+            Password
+            <input id="loginPassword" type="password" value="admin2026" autocomplete="current-password" />
+          </label>
+          <p class="login-help">Admin demo: admin@manjai.local / admin2026</p>
+          <p class="login-error" id="loginError" role="alert"></p>
+          <button class="primary-action full" type="submit">Login</button>
+        </form>
+      </div>
+    </aside>
+
+    <section class="app-hub" id="appHub" aria-hidden="true">
+      <div class="hub-shell">
+        <header class="hub-top">
+          <a class="brand dashboard-brand" href="#home">
+            <span class="brand-mark">M</span>
+            <span>ManjAI</span>
+          </a>
+          <button class="hub-logout" type="button" data-hub-logout>Logout</button>
+        </header>
+        <div class="hub-intro">
+          <p class="section-kicker">Choose workspace</p>
+          <h2>Welcome to ManjAI</h2>
+          <p>Select the module you want to open for this presentation.</p>
+        </div>
+        <div class="app-grid">
+          <button class="app-card health-card" type="button" data-open-health>
+            <span class="app-icon">+</span>
+            <span class="app-label">ManjAI Health</span>
+            <strong>Clinical Screening Dashboard</strong>
+            <span class="app-description">Open the simulated child nutrition-risk dashboard with Normal, Moderate, and High risk cases.</span>
+            <span class="app-action">Open dashboard</span>
+          </button>
+          <button class="app-card market-card" type="button" data-open-market>
+            <span class="app-icon">M</span>
+            <span class="app-label">ManjAI Market</span>
+            <strong>AI-Assisted Nutrition Distribution Platform</strong>
+            <span class="app-description">Future module for food categorization, inventory planning, and nutrition package distribution.</span>
+            <span class="app-action">Coming soon</span>
+          </button>
+        </div>
+        <aside class="coming-soon" aria-hidden="true" data-coming-soon>
+          <button class="close-coming" type="button" data-close-coming aria-label="Close coming soon">x</button>
+          <p class="section-kicker">Future work</p>
+          <h3>ManjAI Market is coming soon</h3>
+          <p>
+            This module is planned as a long-term extension after real-data validation, hardware testing,
+            clinical review, and field deployment studies.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="dashboard-view" id="dashboard" aria-hidden="true">
+      <div class="dashboard-shell">
+        <aside class="dashboard-sidebar">
+          <a class="brand dashboard-brand" href="#home">
+            <span class="brand-mark">M</span>
+            <span>ManjAI</span>
+          </a>
+          <button class="side-active" type="button" data-view="overview">Overview</button>
+          <button type="button" data-view="children">Children</button>
+          <button type="button" data-view="alerts">Risk Alerts</button>
+          <button type="button" data-view="messages">Messages</button>
+          <button type="button" data-view="reports">Reports</button>
+          <button type="button" id="logoutButton">Logout</button>
+        </aside>
+        <div class="dashboard-main">
+          <header class="dashboard-top">
+            <div>
+              <p class="section-kicker">Software simulation dashboard</p>
+              <h2>Child Nutrition Risk Overview</h2>
+            </div>
+            <div class="status-pill">Live simulation</div>
+          </header>
+
+          <div class="simulation-banner" role="note">
+            <strong>Software simulation prototype</strong>
+            <span>All dashboard records, map totals, alerts, and reports use demo data for thesis presentation. This is not clinical deployment data.</span>
+          </div>
+
+          <section class="case-controls dashboard-section active-section" data-section="overview" aria-label="Simulated child cases">
+            <button class="case-button active" data-case="normal" type="button">Normal Case</button>
+            <button class="case-button" data-case="moderate" type="button">Moderate Risk</button>
+            <button class="case-button" data-case="high" type="button">High Risk</button>
+          </section>
+
+          <section class="dashboard-grid dashboard-section active-section" data-section="overview">
+            <article class="risk-panel">
+              <p class="panel-label">Predicted risk</p>
+              <h3 id="riskLabel">Normal Risk</h3>
+              <p id="riskText">The simulated child record is within expected screening limits.</p>
+              <div class="confidence-bar" aria-label="Model confidence">
+                <span id="confidenceFill"></span>
+              </div>
+              <p id="confidenceText">Model confidence: 91%</p>
+            </article>
+
+            <article>
+              <p class="panel-label">Anthropometry</p>
+              <div class="value-row"><span>Age</span><strong id="ageValue">28 months</strong></div>
+              <div class="value-row"><span>Weight</span><strong id="weightValue">12.6 kg</strong></div>
+              <div class="value-row"><span>Height</span><strong id="heightValue">88.5 cm</strong></div>
+              <div class="value-row"><span>MUAC</span><strong id="muacValue">14.8 cm</strong></div>
+            </article>
+
+            <article>
+              <p class="panel-label">Physiological signals</p>
+              <div class="value-row"><span>Temperature</span><strong id="tempValue">36.8 C</strong></div>
+              <div class="value-row"><span>Heart rate</span><strong id="heartValue">103 bpm</strong></div>
+              <div class="value-row"><span>SpO2</span><strong id="spo2Value">98%</strong></div>
+              <div class="value-row"><span>Activity</span><strong id="activityValue">Good</strong></div>
+            </article>
+
+            <article class="chart-panel">
+              <p class="panel-label">24-hour vital trend</p>
+              <canvas id="vitalsChart" width="720" height="280"></canvas>
+            </article>
+
+            <article class="alert-panel">
+              <p class="panel-label">Caregiver alert</p>
+              <h3 id="alertTitle">No urgent alert</h3>
+              <p id="alertText">Continue routine observation and scheduled nutrition follow-up.</p>
+            </article>
+
+            <article class="calculator-panel">
+              <p class="panel-label">Risk calculator</p>
+              <h3>Enter simulated child data</h3>
+              <form id="riskCalculator" class="risk-form">
+                <label>Age months<input id="calcAge" type="number" min="0" max="60" value="28" /></label>
+                <label>Weight kg<input id="calcWeight" type="number" min="2" max="32" step="0.1" value="12.6" /></label>
+                <label>Height cm<input id="calcHeight" type="number" min="42" max="145" step="0.1" value="88.5" /></label>
+                <label>MUAC cm<input id="calcMuac" type="number" min="7" max="20" step="0.1" value="14.8" /></label>
+                <label>Temperature C<input id="calcTemp" type="number" min="33" max="41" step="0.1" value="36.8" /></label>
+                <label>Heart bpm<input id="calcHeart" type="number" min="50" max="220" value="103" /></label>
+                <label>SpO2 %<input id="calcSpo2" type="number" min="80" max="100" value="98" /></label>
+                <label>Activity<input id="calcActivity" type="number" min="0" max="2" step="0.1" value="1.1" /></label>
+                <button class="primary-action full" type="submit">Calculate risk</button>
+              </form>
+            </article>
+
+            <article class="signals-panel">
+              <p class="panel-label">Signalisation</p>
+              <h3>Screening signal status</h3>
+              <div class="signal-list">
+                <div class="signal-item ok" id="signalMuac"><span></span><strong>MUAC</strong><em>Normal</em></div>
+                <div class="signal-item ok" id="signalTemp"><span></span><strong>Temperature</strong><em>Normal</em></div>
+                <div class="signal-item ok" id="signalSpo2"><span></span><strong>SpO2</strong><em>Normal</em></div>
+                <div class="signal-item ok" id="signalActivity"><span></span><strong>Activity</strong><em>Good</em></div>
+              </div>
+            </article>
+
+            <article class="haiti-panel">
+              <p class="panel-label">Haiti deployment map</p>
+              <h3>Department screening overview</h3>
+              <div class="haiti-layout">
+                <div class="haiti-map" aria-label="Interactive Haiti departments">
+                  <button style="--x:52%;--y:18%" data-dept="Nord-Ouest">Nord-Ouest</button>
+                  <button style="--x:66%;--y:15%" data-dept="Nord">Nord</button>
+                  <button style="--x:78%;--y:21%" data-dept="Nord-Est">Nord-Est</button>
+                  <button style="--x:56%;--y:32%" data-dept="Artibonite">Artibonite</button>
+                  <button style="--x:69%;--y:38%" data-dept="Centre">Centre</button>
+                  <button style="--x:58%;--y:51%" data-dept="Ouest">Ouest</button>
+                  <button style="--x:42%;--y:57%" data-dept="Nippes">Nippes</button>
+                  <button style="--x:30%;--y:59%" data-dept="Grand'Anse">Grand'Anse</button>
+                  <button style="--x:38%;--y:72%" data-dept="Sud">Sud</button>
+                  <button style="--x:66%;--y:66%" data-dept="Sud-Est">Sud-Est</button>
+                </div>
+                <div class="dept-card">
+                  <span id="deptName">Ouest</span>
+                  <strong id="deptCount">1,240</strong>
+                  <p>screened children</p>
+                  <div class="dept-row"><span>Moderate risk</span><b id="deptModerate">231</b></div>
+                  <div class="dept-row"><span>High risk</span><b id="deptHigh">78</b></div>
+                  <div class="dept-row"><span>Main cities</span><b id="deptCities">Port-au-Prince, Carrefour, Petion-Ville</b></div>
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <section class="dashboard-section" data-section="children">
+            <div class="children-toolbar">
+              <label>
+                Search child or city
+                <input id="childSearch" type="search" placeholder="Search name, ID, city..." />
+              </label>
+              <label>
+                Risk filter
+                <select id="riskFilter">
+                  <option value="all">All risks</option>
+                  <option value="Normal">Normal</option>
+                  <option value="Moderate">Moderate</option>
+                  <option value="High">High</option>
+                </select>
+              </label>
+              <button class="primary-action" id="newChildButton" type="button">Register child</button>
+            </div>
+            <div class="children-layout">
+              <article class="children-list-card">
+                <p class="panel-label">Children registry</p>
+                <div class="children-table-wrap">
+                  <table class="children-table">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Department</th>
+                        <th>Age</th>
+                        <th>Risk</th>
+                        <th>Last check</th>
+                      </tr>
+                    </thead>
+                    <tbody id="childrenTable"></tbody>
+                  </table>
+                </div>
+              </article>
+              <article class="child-detail-card">
+                <p class="panel-label">Selected child</p>
+                <h3 id="selectedChildName">Select a child</h3>
+                <div class="value-row"><span>Child ID</span><strong id="selectedChildId">-</strong></div>
+                <div class="value-row"><span>Department</span><strong id="selectedChildDept">-</strong></div>
+                <div class="value-row"><span>City</span><strong id="selectedChildCity">-</strong></div>
+                <div class="value-row"><span>MUAC</span><strong id="selectedChildMuac">-</strong></div>
+                <div class="value-row"><span>Recommendation</span><strong id="selectedChildAction">-</strong></div>
+                <button class="secondary-action detail-button" id="editChildButton" type="button">Edit selected child</button>
+              </article>
+            </div>
+            <article class="child-form-card" id="childFormCard">
+              <p class="panel-label">Register / edit child</p>
+              <h3 id="childFormTitle">Register child</h3>
+              <form id="childForm" class="risk-form child-form">
+                <label>Child ID<input id="formChildId" type="text" placeholder="HT-0011" /></label>
+                <label>Name<input id="formChildName" type="text" placeholder="Child name" /></label>
+                <label>Department<select id="formChildDept"></select></label>
+                <label>City<input id="formChildCity" type="text" placeholder="City" /></label>
+                <label>Age months<input id="formChildAge" type="number" min="0" max="60" value="24" /></label>
+                <label>MUAC cm<input id="formChildMuac" type="number" min="7" max="20" step="0.1" value="13.1" /></label>
+                <label>Temperature C<input id="formChildTemp" type="number" min="33" max="41" step="0.1" value="36.9" /></label>
+                <label>SpO2 %<input id="formChildSpo2" type="number" min="80" max="100" value="98" /></label>
+                <button class="primary-action full" type="submit">Save child record</button>
+              </form>
+            </article>
+          </section>
+
+          <section class="dashboard-section" data-section="alerts">
+            <div class="alerts-grid">
+              <article>
+                <p class="panel-label">Alert queue</p>
+                <h3>Active screening alerts</h3>
+                <div id="alertsList" class="alerts-list"></div>
+              </article>
+              <article>
+                <p class="panel-label">Priority summary</p>
+                <div class="summary-stack">
+                  <div class="summary-box high"><span id="highAlertCount">0</span><strong>High risk</strong></div>
+                  <div class="summary-box moderate"><span id="moderateAlertCount">0</span><strong>Moderate risk</strong></div>
+                  <div class="summary-box normal"><span id="normalAlertCount">0</span><strong>Normal follow-up</strong></div>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="dashboard-section" data-section="messages">
+            <div class="messages-layout">
+              <article>
+                <p class="panel-label">Instant messages</p>
+                <h3>Care-team communication</h3>
+                <div class="message-thread" id="messageThread"></div>
+                <form class="message-form" id="messageForm">
+                  <input id="messageInput" type="text" placeholder="Write a message to the care team..." />
+                  <button class="primary-action" type="submit">Send</button>
+                </form>
+              </article>
+              <article>
+                <p class="panel-label">Contacts</p>
+                <button class="contact-card active" type="button">Community nurse <span>Online</span></button>
+                <button class="contact-card" type="button">Nutrition coordinator <span>Online</span></button>
+                <button class="contact-card" type="button">School health worker <span>Away</span></button>
+                <button class="contact-card" type="button">District clinic <span>Online</span></button>
+              </article>
+            </div>
+          </section>
+
+          <section class="dashboard-section" data-section="reports">
+            <div class="reports-grid">
+              <article>
+                <p class="panel-label">Report builder</p>
+                <h3>Generate presentation report</h3>
+                <label class="report-field">
+                  Department
+                  <select id="reportDepartment">
+                    <option value="All Haiti">All Haiti</option>
+                    <option value="Artibonite">Artibonite</option>
+                    <option value="Centre">Centre</option>
+                    <option value="Grand'Anse">Grand'Anse</option>
+                    <option value="Nippes">Nippes</option>
+                    <option value="Nord">Nord</option>
+                    <option value="Nord-Est">Nord-Est</option>
+                    <option value="Nord-Ouest">Nord-Ouest</option>
+                    <option value="Ouest">Ouest</option>
+                    <option value="Sud">Sud</option>
+                    <option value="Sud-Est">Sud-Est</option>
+                  </select>
+                </label>
+                <label class="report-field">
+                  Period
+                  <select id="reportPeriod">
+                    <option>June 2026</option>
+                    <option>Last 30 days</option>
+                    <option>Current pilot week</option>
+                  </select>
+                </label>
+                <button class="primary-action full" id="generateReport" type="button">Generate report</button>
+              </article>
+              <article class="report-preview">
+                <p class="panel-label">Preview</p>
+                <h3 id="reportTitle">All Haiti - June 2026</h3>
+                <div class="report-metrics">
+                  <div><span id="reportTotal">5,040</span><strong>Total screened</strong></div>
+                  <div><span id="reportModerate">943</span><strong>Moderate risk</strong></div>
+                  <div><span id="reportHigh">393</span><strong>High risk</strong></div>
+                </div>
+                <p id="reportNarrative">This report summarizes simulated ManjAI Health screening activity for thesis presentation. Values are demonstration data, not clinical deployment results.</p>
+              </article>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <script src="app.js"></script>
+  </body>
+</html>
