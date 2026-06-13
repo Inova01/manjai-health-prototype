@@ -1642,6 +1642,20 @@ body.dashboard-active .site-footer {
     padding: 16px 12px 24px;
   }
 
+  .dashboard-grid,
+  .metric-grid,
+  .report-metrics,
+  .app-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-grid > article,
+  .chart-panel,
+  .calculator-panel,
+  .haiti-panel {
+    grid-column: 1 / -1;
+  }
+
   .dashboard-top {
     display: grid;
     gap: 10px;
