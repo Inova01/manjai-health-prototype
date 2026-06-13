@@ -195,6 +195,7 @@ function showDashboardView(view) {
     overview: "Child Nutrition Risk Overview",
     children: "Children Registry",
     alerts: "Risk Alerts",
+    messages: "Instant Messages",
     reports: "Reports",
   };
   document.querySelector(".dashboard-top h2").textContent = titles[view];

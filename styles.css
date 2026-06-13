@@ -25,10 +25,12 @@ body {
   color: var(--ink);
   font-family: Inter, Segoe UI, Arial, sans-serif;
   background: #f7fbfd;
+  overflow-x: hidden;
 }
 
 button,
-input {
+input,
+select {
   font: inherit;
 }
 
@@ -740,6 +742,7 @@ h3 {
 
 .dashboard-main {
   padding: 28px;
+  min-width: 0;
 }
 
 .dashboard-top {
@@ -1333,6 +1336,7 @@ canvas {
 }
 
 .message-form input {
+  min-width: 0;
   min-height: 44px;
   padding: 0 13px;
   color: var(--ink);
@@ -1440,5 +1444,300 @@ body.dashboard-active .site-footer {
 
   .metric-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1100px) {
+  .site-header {
+    gap: 14px;
+  }
+
+  .nav-link {
+    padding: 0 10px;
+    font-size: 0.88rem;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  }
+
+  .dashboard-main {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 920px) {
+  .site-header {
+    gap: 12px;
+  }
+
+  .dashboard-sidebar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    flex-direction: row;
+    gap: 8px;
+    padding: 14px;
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+
+  .dashboard-sidebar .dashboard-brand {
+    flex: 0 0 auto;
+    margin: 0 8px 0 0;
+  }
+
+  .dashboard-sidebar button {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  .dashboard-main {
+    padding: 22px;
+  }
+
+  .report-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .app-card {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 620px) {
+  .brand {
+    font-size: 1rem;
+  }
+
+  .brand-mark {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+  }
+
+  .header-login {
+    min-height: 40px;
+    padding: 0 12px;
+    font-size: 0.86rem;
+  }
+
+  .hero {
+    min-height: 92svh;
+    align-items: end;
+    padding-bottom: 42px;
+  }
+
+  .hero > img {
+    object-position: 58% center;
+  }
+
+  .hero::after {
+    background:
+      linear-gradient(180deg, rgba(246, 252, 255, 0.08) 0%, rgba(246, 252, 255, 0.72) 42%, rgba(246, 252, 255, 0.98) 100%),
+      linear-gradient(90deg, rgba(246, 252, 255, 0.88), rgba(246, 252, 255, 0.34));
+  }
+
+  .hero-copy {
+    width: calc(100% - 32px);
+    margin: 0 auto;
+    padding-top: 96px;
+  }
+
+  h1 {
+    font-size: 3.4rem;
+  }
+
+  h2 {
+    font-size: 1.9rem;
+  }
+
+  .hero-line {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .hero-actions,
+  .case-controls {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .primary-action,
+  .secondary-action,
+  .case-button {
+    width: 100%;
+  }
+
+  .section-inner,
+  .footer-inner {
+    width: calc(100% - 28px);
+  }
+
+  .origin-section,
+  .validation-section,
+  .limitations-section,
+  .architecture-section,
+  .prototype-section {
+    padding: 46px 0;
+  }
+
+  .steps-row article,
+  .scope-list article,
+  .metric-grid article,
+  .dashboard-grid article,
+  .children-list-card,
+  .child-detail-card,
+  .child-form-card,
+  .alerts-grid article,
+  .reports-grid article,
+  .messages-layout article {
+    padding: 18px;
+  }
+
+  .wide-visual,
+  .preview-frame {
+    border-radius: 6px;
+  }
+
+  .app-hub {
+    padding: 12px;
+  }
+
+  .hub-shell {
+    min-height: calc(100svh - 24px);
+    padding: 18px;
+    border-radius: 10px;
+  }
+
+  .hub-top {
+    align-items: flex-start;
+  }
+
+  .hub-intro {
+    margin: 34px auto 20px;
+    text-align: left;
+  }
+
+  .app-card {
+    min-height: auto;
+    padding: 22px;
+  }
+
+  .dashboard-sidebar {
+    padding: 10px;
+  }
+
+  .dashboard-sidebar .dashboard-brand {
+    display: none;
+  }
+
+  .dashboard-sidebar button {
+    height: 40px;
+    padding: 0 12px;
+    font-size: 0.9rem;
+  }
+
+  .dashboard-main {
+    padding: 16px 12px 24px;
+  }
+
+  .dashboard-top {
+    display: grid;
+    gap: 10px;
+  }
+
+  .status-pill {
+    width: fit-content;
+  }
+
+  .simulation-banner {
+    display: grid;
+    gap: 4px;
+  }
+
+  .simulation-banner strong {
+    white-space: normal;
+  }
+
+  .value-row,
+  .dept-row {
+    align-items: start;
+  }
+
+  .value-row strong,
+  .dept-row b {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    text-align: right;
+  }
+
+  canvas {
+    height: 190px;
+  }
+
+  .haiti-map {
+    min-height: 300px;
+  }
+
+  .haiti-map button {
+    min-height: 26px;
+    padding: 0 6px;
+    font-size: 0.66rem;
+  }
+
+  .dept-card > strong {
+    font-size: 2.1rem;
+  }
+
+  .children-table {
+    min-width: 640px;
+  }
+
+  .alert-row {
+    grid-template-columns: 1fr;
+  }
+
+  .alert-row span {
+    grid-row: auto;
+    width: fit-content;
+  }
+
+  .message-thread {
+    height: 340px;
+  }
+
+  .message-bubble {
+    width: 94%;
+  }
+
+  .footer-inner {
+    padding: 30px 0;
+  }
+}
+
+@media (max-width: 390px) {
+  .site-header {
+    padding: 9px 12px;
+  }
+
+  .brand span:last-child {
+    display: none;
+  }
+
+  .hero-copy {
+    width: calc(100% - 24px);
+  }
+
+  h1 {
+    font-size: 2.9rem;
+  }
+
+  .dashboard-main {
+    padding-inline: 10px;
+  }
+
+  .haiti-map {
+    min-height: 280px;
   }
 }
