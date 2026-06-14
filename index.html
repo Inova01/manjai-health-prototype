@@ -434,12 +434,37 @@
               </article>
               <article class="child-detail-card">
                 <p class="panel-label">Selected child</p>
-                <h3 id="selectedChildName">Select a child</h3>
-                <div class="value-row"><span>Child ID</span><strong id="selectedChildId">-</strong></div>
-                <div class="value-row"><span>Department</span><strong id="selectedChildDept">-</strong></div>
-                <div class="value-row"><span>City</span><strong id="selectedChildCity">-</strong></div>
-                <div class="value-row"><span>MUAC</span><strong id="selectedChildMuac">-</strong></div>
-                <div class="value-row"><span>Recommendation</span><strong id="selectedChildAction">-</strong></div>
+                <div class="profile-header">
+                  <div class="profile-avatar" id="selectedChildInitials">--</div>
+                  <div>
+                    <h3 id="selectedChildName">Select a child</h3>
+                    <span id="selectedChildProfileRisk" class="risk-badge normal">-</span>
+                  </div>
+                </div>
+                <p class="child-bio" id="selectedChildBio">Click a child record to open the profile.</p>
+                <div class="profile-grid">
+                  <div class="value-row"><span>Child ID</span><strong id="selectedChildId">-</strong></div>
+                  <div class="value-row"><span>Sex</span><strong id="selectedChildSex">-</strong></div>
+                  <div class="value-row"><span>Age</span><strong id="selectedChildAge">-</strong></div>
+                  <div class="value-row"><span>Department</span><strong id="selectedChildDept">-</strong></div>
+                  <div class="value-row"><span>City</span><strong id="selectedChildCity">-</strong></div>
+                  <div class="value-row"><span>Caregiver</span><strong id="selectedChildCaregiver">-</strong></div>
+                  <div class="value-row"><span>Affiliation</span><strong id="selectedChildAffiliationType">-</strong></div>
+                  <div class="value-row"><span>Program site</span><strong id="selectedChildAffiliation">-</strong></div>
+                  <div class="value-row"><span>Enrolled</span><strong id="selectedChildEnrolled">-</strong></div>
+                  <div class="value-row"><span>MUAC</span><strong id="selectedChildMuac">-</strong></div>
+                  <div class="value-row"><span>Temperature</span><strong id="selectedChildTemp">-</strong></div>
+                  <div class="value-row"><span>SpO2</span><strong id="selectedChildSpo2">-</strong></div>
+                </div>
+                <div class="profile-note">
+                  <span>Family context</span>
+                  <p id="selectedChildFamily">-</p>
+                </div>
+                <div class="profile-note">
+                  <span>Program note</span>
+                  <p id="selectedChildNotes">-</p>
+                </div>
+                <div class="value-row recommendation-row"><span>Recommendation</span><strong id="selectedChildAction">-</strong></div>
                 <button class="secondary-action detail-button" id="editChildButton" type="button">Edit selected child</button>
               </article>
             </div>

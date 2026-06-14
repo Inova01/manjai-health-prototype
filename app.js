@@ -52,16 +52,16 @@ const departments = {
 };
 
 const childRecords = [
-  { id: "HT-0001", name: "Amara Jean", dept: "Ouest", city: "Port-au-Prince", age: 22, muac: 10.9, temp: 38.1, heart: 132, spo2: 93, risk: "High", last: "Today 10:24", action: "Urgent referral recommended" },
-  { id: "HT-0002", name: "Noah Pierre", dept: "Nord", city: "Cap-Haitien", age: 34, muac: 12.3, temp: 37.5, heart: 119, spo2: 96, risk: "Moderate", last: "Today 09:45", action: "Nutrition follow-up within 7 days" },
-  { id: "HT-0003", name: "Maya Louis", dept: "Sud", city: "Les Cayes", age: 28, muac: 14.8, temp: 36.8, heart: 103, spo2: 98, risk: "Normal", last: "Today 08:40", action: "Routine observation" },
-  { id: "HT-0004", name: "Samuel Joseph", dept: "Artibonite", city: "Gonaives", age: 18, muac: 11.2, temp: 37.9, heart: 128, spo2: 94, risk: "High", last: "Yesterday 16:15", action: "Priority health-worker review" },
-  { id: "HT-0005", name: "Lea Baptiste", dept: "Centre", city: "Hinche", age: 41, muac: 12.7, temp: 37.2, heart: 113, spo2: 96, risk: "Moderate", last: "Yesterday 14:05", action: "Repeat MUAC and weight check" },
-  { id: "HT-0006", name: "Ethan Charles", dept: "Nord-Est", city: "Ouanaminthe", age: 31, muac: 13.9, temp: 36.9, heart: 104, spo2: 98, risk: "Normal", last: "Yesterday 11:22", action: "Routine observation" },
-  { id: "HT-0007", name: "Anaise Michel", dept: "Nippes", city: "Miragoane", age: 25, muac: 12.1, temp: 37.6, heart: 122, spo2: 95, risk: "Moderate", last: "Jun 12 15:33", action: "Caregiver nutrition counseling" },
-  { id: "HT-0008", name: "David Augustin", dept: "Grand'Anse", city: "Jeremie", age: 16, muac: 10.7, temp: 38.4, heart: 136, spo2: 92, risk: "High", last: "Jun 12 10:08", action: "Urgent referral recommended" },
-  { id: "HT-0009", name: "Sofia Etienne", dept: "Sud-Est", city: "Jacmel", age: 38, muac: 14.1, temp: 36.7, heart: 101, spo2: 99, risk: "Normal", last: "Jun 11 13:10", action: "Routine observation" },
-  { id: "HT-0010", name: "Daniel Moise", dept: "Nord-Ouest", city: "Port-de-Paix", age: 29, muac: 12.4, temp: 37.4, heart: 118, spo2: 96, risk: "Moderate", last: "Jun 11 09:05", action: "Nutrition follow-up within 7 days" },
+  { id: "HT-0001", name: "Amara Jean", sex: "Female", caregiver: "Mireille Jean", family: "Lives with mother and two siblings; caregiver sells food near the local market.", affiliationType: "Hospital program", affiliation: "St. Damien Pediatric Outreach", enrolled: "May 2026", notes: "Referred after low MUAC and fever during community screening.", dept: "Ouest", city: "Port-au-Prince", age: 22, muac: 10.9, temp: 38.1, heart: 132, spo2: 93, risk: "High", last: "Today 10:24", action: "Urgent referral recommended" },
+  { id: "HT-0002", name: "Noah Pierre", sex: "Male", caregiver: "Jean Pierre", family: "Lives with father and grandmother; family attends weekly community food support.", affiliationType: "School", affiliation: "Ecole Communautaire du Nord", enrolled: "April 2026", notes: "Follow-up case after reduced appetite and borderline MUAC.", dept: "Nord", city: "Cap-Haitien", age: 34, muac: 12.3, temp: 37.5, heart: 119, spo2: 96, risk: "Moderate", last: "Today 09:45", action: "Nutrition follow-up within 7 days" },
+  { id: "HT-0003", name: "Maya Louis", sex: "Female", caregiver: "Nadine Louis", family: "Two-parent household; child enrolled through preschool screening day.", affiliationType: "School", affiliation: "Les Cayes Early Learning Center", enrolled: "June 2026", notes: "Routine monitoring record with stable vital and nutrition indicators.", dept: "Sud", city: "Les Cayes", age: 28, muac: 14.8, temp: 36.8, heart: 103, spo2: 98, risk: "Normal", last: "Today 08:40", action: "Routine observation" },
+  { id: "HT-0004", name: "Samuel Joseph", sex: "Male", caregiver: "Rose Joseph", family: "Mother-led household; transport to clinic is difficult during rainy season.", affiliationType: "Church", affiliation: "Gonaives Community Church Program", enrolled: "May 2026", notes: "Priority follow-up due to high-risk anthropometric signal.", dept: "Artibonite", city: "Gonaives", age: 18, muac: 11.2, temp: 37.9, heart: 128, spo2: 94, risk: "High", last: "Yesterday 16:15", action: "Priority health-worker review" },
+  { id: "HT-0005", name: "Lea Baptiste", sex: "Female", caregiver: "Claudette Baptiste", family: "Lives with aunt during weekdays; family receives nutrition counseling.", affiliationType: "Community program", affiliation: "Hinche Maternal and Child Nutrition Group", enrolled: "March 2026", notes: "Repeated measurement recommended to confirm trend.", dept: "Centre", city: "Hinche", age: 41, muac: 12.7, temp: 37.2, heart: 113, spo2: 96, risk: "Moderate", last: "Yesterday 14:05", action: "Repeat MUAC and weight check" },
+  { id: "HT-0006", name: "Ethan Charles", sex: "Male", caregiver: "Marc Charles", family: "Lives with parents; active child with regular school attendance.", affiliationType: "Clinic", affiliation: "Ouanaminthe Primary Care Clinic", enrolled: "June 2026", notes: "Normal observation record kept for program monitoring.", dept: "Nord-Est", city: "Ouanaminthe", age: 31, muac: 13.9, temp: 36.9, heart: 104, spo2: 98, risk: "Normal", last: "Yesterday 11:22", action: "Routine observation" },
+  { id: "HT-0007", name: "Anaise Michel", sex: "Female", caregiver: "Solange Michel", family: "Caregiver reports irregular meals during school closure periods.", affiliationType: "NGO program", affiliation: "Miragoane Child Nutrition Outreach", enrolled: "April 2026", notes: "Moderate-risk case linked to counseling and weekly food support.", dept: "Nippes", city: "Miragoane", age: 25, muac: 12.1, temp: 37.6, heart: 122, spo2: 95, risk: "Moderate", last: "Jun 12 15:33", action: "Caregiver nutrition counseling" },
+  { id: "HT-0008", name: "David Augustin", sex: "Male", caregiver: "Patrick Augustin", family: "Lives with extended family; travel distance delays health follow-up.", affiliationType: "Hospital program", affiliation: "Jeremie Pediatric Referral Network", enrolled: "May 2026", notes: "Urgent referral flag generated after low MUAC and low SpO2.", dept: "Grand'Anse", city: "Jeremie", age: 16, muac: 10.7, temp: 38.4, heart: 136, spo2: 92, risk: "High", last: "Jun 12 10:08", action: "Urgent referral recommended" },
+  { id: "HT-0009", name: "Sofia Etienne", sex: "Female", caregiver: "Marise Etienne", family: "Family participates in monthly community health education.", affiliationType: "Church", affiliation: "Jacmel Parish Health Desk", enrolled: "June 2026", notes: "Stable case used for routine growth monitoring.", dept: "Sud-Est", city: "Jacmel", age: 38, muac: 14.1, temp: 36.7, heart: 101, spo2: 99, risk: "Normal", last: "Jun 11 13:10", action: "Routine observation" },
+  { id: "HT-0010", name: "Daniel Moise", sex: "Male", caregiver: "Elise Moise", family: "Lives with mother and uncle; enrolled through mobile outreach visit.", affiliationType: "Mobile clinic", affiliation: "Port-de-Paix Outreach Team", enrolled: "April 2026", notes: "Moderate-risk follow-up requested for next outreach cycle.", dept: "Nord-Ouest", city: "Port-de-Paix", age: 29, muac: 12.4, temp: 37.4, heart: 118, spo2: 96, risk: "Moderate", last: "Jun 11 09:05", action: "Nutrition follow-up within 7 days" },
 ];
 
 const messages = [
@@ -211,6 +211,10 @@ function riskClass(risk) {
   return risk.toLowerCase();
 }
 
+function initialsForName(name) {
+  return name.split(" ").filter(Boolean).slice(0, 2).map((part) => part[0]).join("").toUpperCase();
+}
+
 function renderChildren() {
   const query = childSearch.value.trim().toLowerCase();
   const filter = riskFilter.value;
@@ -250,10 +254,25 @@ function selectChild(id) {
   });
 
   setText("selectedChildName", child.name);
+  setText("selectedChildInitials", initialsForName(child.name));
+  const riskBadge = document.getElementById("selectedChildProfileRisk");
+  riskBadge.className = `risk-badge ${riskClass(child.risk)}`;
+  riskBadge.textContent = `${child.risk} risk`;
+  setText("selectedChildBio", `${child.name} is a ${child.age}-month-old child from ${child.city}. The profile is part of the ManjAI software-simulation registry for preliminary nutrition-risk screening.`);
   setText("selectedChildId", child.id);
+  setText("selectedChildSex", child.sex || "Not specified");
+  setText("selectedChildAge", `${child.age} months`);
   setText("selectedChildDept", child.dept);
   setText("selectedChildCity", child.city);
+  setText("selectedChildCaregiver", child.caregiver || "Not specified");
+  setText("selectedChildAffiliationType", child.affiliationType || "Program");
+  setText("selectedChildAffiliation", child.affiliation || "Community screening program");
+  setText("selectedChildEnrolled", child.enrolled || "June 2026");
   setText("selectedChildMuac", `${child.muac.toFixed(1)} cm`);
+  setText("selectedChildTemp", `${child.temp.toFixed(1)} C`);
+  setText("selectedChildSpo2", `${Math.round(child.spo2)}%`);
+  setText("selectedChildFamily", child.family || "Family context not yet recorded.");
+  setText("selectedChildNotes", child.notes || "No additional program note recorded.");
   setText("selectedChildAction", child.action);
 }
 
@@ -314,6 +333,13 @@ function saveChildFromForm(event) {
     heart: 110,
     spo2: Number(document.getElementById("formChildSpo2").value),
     last: "Just now",
+    sex: "Not specified",
+    caregiver: "Caregiver not recorded",
+    family: "Family context will be completed during the next health-worker interview.",
+    affiliationType: "Community program",
+    affiliation: "ManjAI demonstration registry",
+    enrolled: "June 2026",
+    notes: "New record created from the dashboard registration form.",
   };
   child.risk = inferRiskFromChild(child);
   child.action = recommendationForRisk(child.risk);
