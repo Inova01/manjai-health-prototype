@@ -18,6 +18,8 @@ const closeComingButton = document.querySelector("[data-close-coming]");
 const hubLogoutButton = document.querySelector("[data-hub-logout]");
 const riskCalculator = document.querySelector("#riskCalculator");
 const deptButtons = document.querySelectorAll("[data-dept]");
+const haitiGoogleMap = document.querySelector("#haitiGoogleMap");
+const openGoogleMap = document.querySelector("#openGoogleMap");
 const dashboardSections = document.querySelectorAll(".dashboard-section");
 const childSearch = document.querySelector("#childSearch");
 const riskFilter = document.querySelector("#riskFilter");
@@ -496,11 +498,15 @@ function applyCalculatorResult(result) {
 
 function selectDepartment(name) {
   const data = departments[name];
+  const query = encodeURIComponent(`${name} Haiti`);
   setText("deptName", name);
   setText("deptCount", data.count.toLocaleString("en-US"));
   setText("deptModerate", data.moderate.toLocaleString("en-US"));
   setText("deptHigh", data.high.toLocaleString("en-US"));
   setText("deptCities", data.cities);
+  haitiGoogleMap.src = `https://www.google.com/maps?q=${query}&output=embed`;
+  haitiGoogleMap.title = `Google Map centered on ${name}, Haiti`;
+  openGoogleMap.href = `https://www.google.com/maps/search/?api=1&query=${query}`;
   deptButtons.forEach((button) => button.classList.toggle("active", button.dataset.dept === name));
 }
 

@@ -978,50 +978,66 @@ canvas {
   align-items: stretch;
 }
 
-.haiti-map {
-  position: relative;
-  min-height: 360px;
+.haiti-map-card {
+  display: grid;
+  min-height: 420px;
   overflow: hidden;
-  background: linear-gradient(135deg, rgba(25, 185, 173, 0.12), rgba(39, 120, 230, 0.12)), #f7fbfd;
+  background: #f7fbfd;
   border: 1px solid rgba(9, 35, 74, 0.1);
   border-radius: 10px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.65);
 }
 
-.haiti-map::before {
-  content: "";
-  position: absolute;
-  left: 15%;
-  top: 17%;
-  width: 70%;
-  height: 64%;
-  background: linear-gradient(135deg, rgba(25, 185, 173, 0.28), rgba(39, 120, 230, 0.2));
-  clip-path: polygon(15% 18%, 45% 5%, 70% 18%, 86% 35%, 77% 56%, 90% 73%, 61% 82%, 42% 72%, 16% 86%, 3% 63%, 24% 48%, 8% 34%);
-  border: 2px solid rgba(25, 185, 173, 0.36);
+.haiti-map-card iframe {
+  width: 100%;
+  min-height: 310px;
+  border: 0;
 }
 
-.haiti-map button {
-  position: absolute;
-  left: var(--x);
-  top: var(--y);
-  z-index: 2;
-  min-height: 30px;
-  padding: 0 8px;
+.map-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-content: start;
+  padding: 12px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(238, 249, 250, 0.94));
+  border-top: 1px solid rgba(9, 35, 74, 0.08);
+}
+
+.map-actions button {
+  min-height: 32px;
+  padding: 0 10px;
   color: #073b56;
   cursor: pointer;
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(25, 185, 173, 0.3);
+  background: #ffffff;
+  border: 1px solid rgba(25, 185, 173, 0.25);
   border-radius: 999px;
-  box-shadow: 0 8px 18px rgba(16, 42, 80, 0.12);
-  font-size: 0.78rem;
+  box-shadow: 0 8px 18px rgba(16, 42, 80, 0.08);
+  font-size: 0.76rem;
   font-weight: 900;
-  transform: translate(-50%, -50%);
 }
 
-.haiti-map button:hover,
-.haiti-map button.active {
+.map-actions button:hover,
+.map-actions button.active {
   color: white;
   background: var(--ink);
   border-color: var(--ink);
+}
+
+.map-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 42px;
+  margin-top: 16px;
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  background: var(--teal);
+  border-radius: 8px;
+  font-size: 0.86rem;
+  font-weight: 900;
 }
 
 .dept-card {
@@ -1690,11 +1706,15 @@ body.dashboard-active .site-footer {
     height: 190px;
   }
 
-  .haiti-map {
+  .haiti-map-card {
     min-height: 300px;
   }
 
-  .haiti-map button {
+  .haiti-map-card iframe {
+    min-height: 250px;
+  }
+
+  .map-actions button {
     min-height: 26px;
     padding: 0 6px;
     font-size: 0.66rem;
@@ -1751,7 +1771,11 @@ body.dashboard-active .site-footer {
     padding-inline: 10px;
   }
 
-  .haiti-map {
+  .haiti-map-card {
     min-height: 280px;
+  }
+
+  .haiti-map-card iframe {
+    min-height: 230px;
   }
 }

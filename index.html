@@ -351,17 +351,27 @@
               <p class="panel-label">Haiti deployment map</p>
               <h3>Department screening overview</h3>
               <div class="haiti-layout">
-                <div class="haiti-map" aria-label="Interactive Haiti departments">
-                  <button style="--x:52%;--y:18%" data-dept="Nord-Ouest">Nord-Ouest</button>
-                  <button style="--x:66%;--y:15%" data-dept="Nord">Nord</button>
-                  <button style="--x:78%;--y:21%" data-dept="Nord-Est">Nord-Est</button>
-                  <button style="--x:56%;--y:32%" data-dept="Artibonite">Artibonite</button>
-                  <button style="--x:69%;--y:38%" data-dept="Centre">Centre</button>
-                  <button style="--x:58%;--y:51%" data-dept="Ouest">Ouest</button>
-                  <button style="--x:42%;--y:57%" data-dept="Nippes">Nippes</button>
-                  <button style="--x:30%;--y:59%" data-dept="Grand'Anse">Grand'Anse</button>
-                  <button style="--x:38%;--y:72%" data-dept="Sud">Sud</button>
-                  <button style="--x:66%;--y:66%" data-dept="Sud-Est">Sud-Est</button>
+                <div class="haiti-map-card" aria-label="Google Map of Haiti departments">
+                  <iframe
+                    id="haitiGoogleMap"
+                    title="Google Map centered on Ouest, Haiti"
+                    src="https://www.google.com/maps?q=Ouest%20Haiti&output=embed"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    allowfullscreen>
+                  </iframe>
+                  <div class="map-actions" aria-label="Choose department shown on map">
+                    <button class="active" data-dept="Ouest">Ouest</button>
+                    <button data-dept="Artibonite">Artibonite</button>
+                    <button data-dept="Centre">Centre</button>
+                    <button data-dept="Grand'Anse">Grand'Anse</button>
+                    <button data-dept="Nippes">Nippes</button>
+                    <button data-dept="Nord">Nord</button>
+                    <button data-dept="Nord-Est">Nord-Est</button>
+                    <button data-dept="Nord-Ouest">Nord-Ouest</button>
+                    <button data-dept="Sud">Sud</button>
+                    <button data-dept="Sud-Est">Sud-Est</button>
+                  </div>
                 </div>
                 <div class="dept-card">
                   <span id="deptName">Ouest</span>
@@ -370,6 +380,7 @@
                   <div class="dept-row"><span>Moderate risk</span><b id="deptModerate">231</b></div>
                   <div class="dept-row"><span>High risk</span><b id="deptHigh">78</b></div>
                   <div class="dept-row"><span>Main cities</span><b id="deptCities">Port-au-Prince, Carrefour, Petion-Ville</b></div>
+                  <a class="map-link" id="openGoogleMap" href="https://www.google.com/maps/search/?api=1&query=Ouest%20Haiti" target="_blank" rel="noreferrer">Open selected zone in Google Maps</a>
                 </div>
               </div>
             </article>
