@@ -39,16 +39,16 @@ const messageInput = document.querySelector("#messageInput");
 let selectedChildId = null;
 
 const departments = {
-  "Artibonite": { count: 940, moderate: 188, high: 61, cities: "Gonaives, Saint-Marc, Dessalines" },
-  "Centre": { count: 620, moderate: 121, high: 43, cities: "Hinche, Mirebalais, Lascahobas" },
-  "Grand'Anse": { count: 410, moderate: 82, high: 31, cities: "Jeremie, Anse-d'Hainault, Dame-Marie" },
-  "Nippes": { count: 360, moderate: 64, high: 22, cities: "Miragoane, Anse-a-Veau, Petite-Riviere" },
-  "Nord": { count: 780, moderate: 139, high: 45, cities: "Cap-Haitien, Limbe, Grande-Riviere-du-Nord" },
-  "Nord-Est": { count: 330, moderate: 58, high: 19, cities: "Fort-Liberte, Ouanaminthe, Trou-du-Nord" },
-  "Nord-Ouest": { count: 390, moderate: 81, high: 28, cities: "Port-de-Paix, Saint-Louis-du-Nord, Mole-Saint-Nicolas" },
-  "Ouest": { count: 1240, moderate: 231, high: 78, cities: "Port-au-Prince, Carrefour, Petion-Ville" },
-  "Sud": { count: 520, moderate: 96, high: 37, cities: "Les Cayes, Port-Salut, Aquin" },
-  "Sud-Est": { count: 450, moderate: 83, high: 29, cities: "Jacmel, Bainet, Belle-Anse" },
+  "Artibonite": { count: 940, moderate: 188, high: 61, communes: 7, cities: "Gonaives, Saint-Marc, Dessalines" },
+  "Centre": { count: 620, moderate: 121, high: 43, communes: 5, cities: "Hinche, Mirebalais, Lascahobas" },
+  "Grand'Anse": { count: 410, moderate: 82, high: 31, communes: 4, cities: "Jeremie, Anse-d'Hainault, Dame-Marie" },
+  "Nippes": { count: 360, moderate: 64, high: 22, communes: 3, cities: "Miragoane, Anse-a-Veau, Petite-Riviere" },
+  "Nord": { count: 780, moderate: 139, high: 45, communes: 7, cities: "Cap-Haitien, Limbe, Grande-Riviere-du-Nord" },
+  "Nord-Est": { count: 330, moderate: 58, high: 19, communes: 3, cities: "Fort-Liberte, Ouanaminthe, Trou-du-Nord" },
+  "Nord-Ouest": { count: 390, moderate: 81, high: 28, communes: 4, cities: "Port-de-Paix, Saint-Louis-du-Nord, Mole-Saint-Nicolas" },
+  "Ouest": { count: 1240, moderate: 231, high: 78, communes: 10, cities: "Port-au-Prince, Carrefour, Petion-Ville" },
+  "Sud": { count: 520, moderate: 96, high: 37, communes: 5, cities: "Les Cayes, Port-Salut, Aquin" },
+  "Sud-Est": { count: 450, moderate: 83, high: 29, communes: 4, cities: "Jacmel, Bainet, Belle-Anse" },
 };
 
 const childRecords = [
@@ -394,12 +394,13 @@ function departmentTotals(name) {
         count: sum.count + dept.count,
         moderate: sum.moderate + dept.moderate,
         high: sum.high + dept.high,
+        communes: sum.communes + dept.communes,
       }),
-      { count: 0, moderate: 0, high: 0 }
+      { count: 0, moderate: 0, high: 0, communes: 0 }
     );
   }
 
-  return departments[name] || { count: 0, moderate: 0, high: 0 };
+  return departments[name] || { count: 0, moderate: 0, high: 0, communes: 0 };
 }
 
 function renderReport() {
@@ -411,9 +412,11 @@ function renderReport() {
   setText("reportTotal", totals.count.toLocaleString("en-US"));
   setText("reportModerate", totals.moderate.toLocaleString("en-US"));
   setText("reportHigh", totals.high.toLocaleString("en-US"));
+  setText("reportDepartments", dept === "All Haiti" ? 10 : 1);
+  setText("reportCommunes", totals.communes);
   setText(
     "reportNarrative",
-    `This simulated report summarizes ManjAI Health screening activity for ${dept} during ${period}. Values are demonstration data for thesis presentation and do not represent clinical deployment results.`
+    `This simulated report summarizes ManjAI Health screening activity for ${dept} during ${period}, covering ${dept === "All Haiti" ? "10 departments" : "1 department"} and ${totals.communes} program communes. Values are demonstration data for thesis presentation and do not represent clinical deployment results.`
   );
 }
 
@@ -573,6 +576,8 @@ function selectDepartment(name) {
   const query = encodeURIComponent(`${name} Haiti`);
   setText("deptName", name);
   setText("deptCount", data.count.toLocaleString("en-US"));
+  setText("deptDepartments", "1 of 10");
+  setText("deptCommunes", `${data.communes} of 52`);
   setText("deptModerate", data.moderate.toLocaleString("en-US"));
   setText("deptHigh", data.high.toLocaleString("en-US"));
   setText("deptCities", data.cities);

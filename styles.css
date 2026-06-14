@@ -1133,6 +1133,13 @@ canvas {
   color: var(--muted);
 }
 
+.coverage-note {
+  display: block;
+  margin-top: 14px;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
 .dept-row {
   display: grid;
   grid-template-columns: 1fr auto;
