@@ -903,15 +903,12 @@ canvas {
 
 .calculator-panel {
   grid-column: span 1;
-  align-self: start;
-  padding-bottom: 5px !important;
 }
 
 .risk-form {
   display: grid;
   grid-template-columns: repeat(4, minmax(110px, 1fr));
   gap: 12px;
-  margin-bottom: 0;
 }
 
 .risk-form label {
