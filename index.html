@@ -339,11 +339,21 @@
             <article class="signals-panel">
               <p class="panel-label">Signalisation</p>
               <h3>Screening signal status</h3>
+              <div class="signal-summary ok" id="signalSummary">
+                <strong>Stable screening pattern</strong>
+                <span id="signalSummaryText">All tracked indicators are inside the demo reference limits.</span>
+              </div>
               <div class="signal-list">
                 <div class="signal-item ok" id="signalMuac"><span></span><strong>MUAC</strong><em>Normal</em></div>
+                <div class="signal-item ok" id="signalWeight"><span></span><strong>Weight-for-age</strong><em>Normal</em></div>
                 <div class="signal-item ok" id="signalTemp"><span></span><strong>Temperature</strong><em>Normal</em></div>
+                <div class="signal-item ok" id="signalHeart"><span></span><strong>Heart rate</strong><em>Normal</em></div>
                 <div class="signal-item ok" id="signalSpo2"><span></span><strong>SpO2</strong><em>Normal</em></div>
                 <div class="signal-item ok" id="signalActivity"><span></span><strong>Activity</strong><em>Good</em></div>
+              </div>
+              <div class="signal-action">
+                <span>Recommended action</span>
+                <strong id="signalAction">Routine observation</strong>
               </div>
             </article>
 

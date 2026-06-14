@@ -460,6 +460,37 @@ function updateSignal(id, state, label) {
   signal.querySelector("em").textContent = label;
 }
 
+function setSignalSummary(level, details) {
+  const summary = document.getElementById("signalSummary");
+  const title = summary.querySelector("strong");
+  const text = document.getElementById("signalSummaryText");
+  const action = document.getElementById("signalAction");
+  const copy = {
+    normal: ["Stable screening pattern", "All tracked indicators are inside the demo reference limits.", "Routine observation"],
+    moderate: ["Moderate warning pattern", "One or more indicators require repeated measurement and nutrition follow-up.", "Repeat screening and schedule nutrition follow-up"],
+    high: ["High-risk signal pattern", "Critical screening signals are present and should be reviewed by a health worker.", "Urgent professional review or referral recommended"],
+  };
+  const [headline, fallback, recommended] = copy[level];
+  summary.classList.remove("ok", "warn", "danger");
+  summary.classList.add(level === "high" ? "danger" : level === "moderate" ? "warn" : "ok");
+  title.textContent = headline;
+  text.textContent = details || fallback;
+  action.textContent = recommended;
+}
+
+function expectedWeightForAge(ageMonths) {
+  if (ageMonths <= 12) return 3.3 + ageMonths * 0.55;
+  if (ageMonths <= 24) return 9.9 + (ageMonths - 12) * 0.22;
+  return 12.5 + (ageMonths - 24) * 0.16;
+}
+
+function heartState(ageMonths, heartRate) {
+  const upperNormal = ageMonths < 12 ? 160 : ageMonths < 36 ? 140 : 130;
+  if (heartRate > upperNormal + 18) return ["danger", "High"];
+  if (heartRate > upperNormal) return ["warn", "Elevated"];
+  return ["ok", "Normal"];
+}
+
 function applyCalculatorResult(result) {
   const labels = {
     normal: ["Normal Risk", "The calculated record is within expected preliminary screening limits.", "No urgent alert", "Continue routine observation and scheduled nutrition follow-up."],
@@ -487,10 +518,25 @@ function applyCalculatorResult(result) {
   if (result.level !== "normal") riskPanel.classList.add(result.level);
   document.getElementById("confidenceFill").style.width = `${result.confidence}%`;
 
+  const expectedWeight = expectedWeightForAge(result.values.age);
+  const weightRatio = result.values.weight / expectedWeight;
+  const weightSignal = weightRatio < 0.78 ? ["danger", "Low"] : weightRatio < 0.9 ? ["warn", "Watch"] : ["ok", "Normal"];
+  const heartSignal = heartState(result.values.age, result.values.heart);
+  const activeWarnings = [];
+  if (result.values.muac < 12.5) activeWarnings.push("MUAC");
+  if (weightRatio < 0.9) activeWarnings.push("weight-for-age");
+  if (result.values.temp >= 37.5) activeWarnings.push("temperature");
+  if (heartSignal[0] !== "ok") activeWarnings.push("heart rate");
+  if (result.values.spo2 < 96) activeWarnings.push("SpO2");
+  if (result.values.activity < 0.8) activeWarnings.push("activity");
+
   updateSignal("signalMuac", result.values.muac < 11.5 ? "danger" : result.values.muac < 12.5 ? "warn" : "ok", result.values.muac < 11.5 ? "Severe" : result.values.muac < 12.5 ? "Watch" : "Normal");
+  updateSignal("signalWeight", weightSignal[0], weightSignal[1]);
   updateSignal("signalTemp", result.values.temp >= 38 ? "danger" : result.values.temp >= 37.5 ? "warn" : "ok", result.values.temp >= 38 ? "Fever" : result.values.temp >= 37.5 ? "Elevated" : "Normal");
+  updateSignal("signalHeart", heartSignal[0], heartSignal[1]);
   updateSignal("signalSpo2", result.values.spo2 < 94 ? "danger" : result.values.spo2 < 96 ? "warn" : "ok", result.values.spo2 < 94 ? "Low" : result.values.spo2 < 96 ? "Watch" : "Normal");
   updateSignal("signalActivity", result.values.activity < 0.55 ? "danger" : result.values.activity < 0.8 ? "warn" : "ok", result.values.activity < 0.55 ? "Low" : result.values.activity < 0.8 ? "Reduced" : "Good");
+  setSignalSummary(result.level, activeWarnings.length ? `Signals requiring attention: ${activeWarnings.join(", ")}.` : "");
 
   const chartBase = result.level === "high" ? [96, 101, 106, 110, 108, 115, 119, 121, 126, 130, 128, 134] : result.level === "moderate" ? [82, 86, 91, 88, 95, 92, 96, 101, 99, 103, 108, 105] : [74, 79, 76, 82, 80, 84, 81, 86, 83, 88, 85, 90];
   drawChart(chartBase, result.level);
