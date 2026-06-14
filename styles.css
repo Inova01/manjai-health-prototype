@@ -902,6 +902,10 @@ canvas {
   grid-column: span 2;
 }
 
+.signals-panel {
+  grid-row: span 2;
+}
+
 .risk-form {
   display: grid;
   grid-template-columns: repeat(4, minmax(110px, 1fr));
@@ -1553,6 +1557,10 @@ body.dashboard-active .site-footer {
   .calculator-panel,
   .haiti-panel {
     grid-column: span 1;
+  }
+
+  .signals-panel {
+    grid-row: auto;
   }
 
   .risk-form,
