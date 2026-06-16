@@ -906,6 +906,18 @@ canvas {
   grid-row: span 2;
 }
 
+.signal-case-controls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.signal-case-controls .case-button {
+  padding: 0 10px;
+  text-align: center;
+}
+
 .risk-form {
   display: grid;
   grid-template-columns: repeat(4, minmax(110px, 1fr));
@@ -1688,6 +1700,10 @@ body.dashboard-active .site-footer {
 
   .method-bar span {
     grid-column: 1 / -1;
+  }
+
+  .signal-case-controls {
+    grid-template-columns: 1fr;
   }
 }
 
