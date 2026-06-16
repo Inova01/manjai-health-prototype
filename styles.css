@@ -909,13 +909,18 @@ canvas {
 .signal-case-controls {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
-  margin-bottom: 16px;
+  gap: 6px;
+  margin-bottom: 14px;
 }
 
 .signal-case-controls .case-button {
-  padding: 0 10px;
+  min-height: 34px;
+  padding: 0 6px;
   text-align: center;
+  white-space: nowrap;
+  border-radius: 7px;
+  font-size: 0.72rem;
+  box-shadow: 0 6px 14px rgba(16, 42, 80, 0.07);
 }
 
 .risk-form {
@@ -1753,9 +1758,6 @@ body.dashboard-active .site-footer {
     grid-column: 1 / -1;
   }
 
-  .signal-case-controls {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 620px) {
