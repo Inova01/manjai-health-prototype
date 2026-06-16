@@ -334,6 +334,29 @@
                 <label>Activity<input id="calcActivity" type="number" min="0" max="2" step="0.1" value="1.1" /></label>
                 <button class="primary-action full" type="submit">Calculate risk</button>
               </form>
+              <div class="calculator-results" aria-live="polite">
+                <div class="calculator-results-head">
+                  <div>
+                    <p class="panel-label">Model methods</p>
+                    <h4>Individual calculator result</h4>
+                  </div>
+                  <span>Demo model output</span>
+                </div>
+                <div class="method-chart" id="methodChart" aria-label="At-risk probability by model"></div>
+                <div class="method-table-wrap">
+                  <table class="method-table">
+                    <thead>
+                      <tr>
+                        <th>Method</th>
+                        <th>Predicted class</th>
+                        <th>At-risk probability</th>
+                        <th>Decision note</th>
+                      </tr>
+                    </thead>
+                    <tbody id="methodTableBody"></tbody>
+                  </table>
+                </div>
+              </div>
             </article>
 
             <article class="signals-panel">

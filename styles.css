@@ -933,6 +933,103 @@ canvas {
   grid-column: span 4;
 }
 
+.calculator-results {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(9, 35, 74, 0.1);
+}
+
+.calculator-results-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: start;
+  margin-bottom: 14px;
+}
+
+.calculator-results-head h4 {
+  margin: 2px 0 0;
+  color: var(--ink);
+  font-size: 1.02rem;
+}
+
+.calculator-results-head > span {
+  padding: 7px 10px;
+  color: #0b6b67;
+  white-space: nowrap;
+  background: rgba(25, 185, 173, 0.1);
+  border: 1px solid rgba(25, 185, 173, 0.22);
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 900;
+}
+
+.method-chart {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.method-bar {
+  display: grid;
+  grid-template-columns: 150px 1fr 52px;
+  gap: 10px;
+  align-items: center;
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.method-track {
+  height: 12px;
+  overflow: hidden;
+  background: #e8eff3;
+  border-radius: 999px;
+}
+
+.method-fill {
+  display: block;
+  width: var(--w);
+  height: 100%;
+  background: linear-gradient(90deg, var(--teal), var(--blue));
+}
+
+.method-bar.moderate .method-fill {
+  background: linear-gradient(90deg, var(--amber), #3d74c8);
+}
+
+.method-bar.high .method-fill {
+  background: linear-gradient(90deg, var(--coral), #3d74c8);
+}
+
+.method-table-wrap {
+  overflow-x: auto;
+}
+
+.method-table {
+  width: 100%;
+  min-width: 680px;
+  border-collapse: collapse;
+  font-size: 0.84rem;
+}
+
+.method-table th,
+.method-table td {
+  padding: 11px 10px;
+  text-align: left;
+  border-bottom: 1px solid rgba(9, 35, 74, 0.08);
+}
+
+.method-table th {
+  color: #526780;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+}
+
+.method-table td:nth-child(3) {
+  font-weight: 900;
+}
+
 .signal-list {
   display: grid;
   gap: 12px;
@@ -1583,6 +1680,14 @@ body.dashboard-active .site-footer {
 
   .risk-form button {
     grid-column: span 1;
+  }
+
+  .method-bar {
+    grid-template-columns: 1fr 46px;
+  }
+
+  .method-bar span {
+    grid-column: 1 / -1;
   }
 }
 
