@@ -572,6 +572,18 @@ function renderScreeningSummary(result) {
   factorsList.innerHTML = factors.map((factor) => `<li>${factor}</li>`).join("");
 }
 
+function calculateAndShowResults(shouldFocus = false) {
+  const result = calcRiskFromInputs();
+  applyCalculatorResult(result);
+  const resultState = document.getElementById("calculatorResultState");
+  const resultPanel = document.querySelector(".calculator-results");
+  resultState.textContent = `Calculated just now - ${result.level.toUpperCase()} risk`;
+  resultPanel.classList.add("has-result");
+  if (shouldFocus) {
+    resultPanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+}
+
 function updateSignal(id, state, label) {
   const signal = document.getElementById(id);
   signal.classList.remove("ok", "warn", "danger");
@@ -718,6 +730,12 @@ function renderCase(name) {
 
   drawChart(data.chart, data.status);
   applyCalculatorResult(calcRiskFromInputs());
+  const resultState = document.getElementById("calculatorResultState");
+  const resultPanel = document.querySelector(".calculator-results");
+  if (resultState && resultPanel) {
+    resultState.textContent = `Loaded demo case - ${data.status.toUpperCase()} risk`;
+    resultPanel.classList.add("has-result");
+  }
 }
 
 function drawChart(values, status) {
@@ -802,11 +820,11 @@ caseButtons.forEach((button) => {
 
 riskCalculator.addEventListener("submit", (event) => {
   event.preventDefault();
-  applyCalculatorResult(calcRiskFromInputs());
+  calculateAndShowResults(true);
 });
 
 riskCalculator.addEventListener("input", () => {
-  applyCalculatorResult(calcRiskFromInputs());
+  calculateAndShowResults(false);
 });
 
 deptButtons.forEach((button) => {
