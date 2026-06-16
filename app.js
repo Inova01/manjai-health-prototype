@@ -527,6 +527,51 @@ function renderMethodResults(result) {
   `).join("");
 }
 
+function renderScreeningSummary(result) {
+  const summary = document.getElementById("screeningSummary");
+  const title = document.getElementById("screeningSummaryTitle");
+  const text = document.getElementById("screeningSummaryText");
+  const factorsList = document.getElementById("screeningSummaryFactors");
+  const values = result.values;
+  const expectedWeight = 3.3 + 2.55 * Math.log1p(values.age) + 0.11 * values.age;
+  const expectedHeight = 49.5 + 16.5 * Math.log1p(values.age) + 0.28 * values.age;
+  const weightGap = (expectedWeight - values.weight) / Math.max(expectedWeight, 1);
+  const heightGap = (expectedHeight - values.height) / Math.max(expectedHeight, 1);
+  const factors = [];
+
+  if (values.muac < 11.5) factors.push(`MUAC is ${values.muac.toFixed(1)} cm, below the severe acute malnutrition screening threshold of 11.5 cm.`);
+  else if (values.muac < 12.5) factors.push(`MUAC is ${values.muac.toFixed(1)} cm, inside the moderate-risk screening range below 12.5 cm.`);
+  else factors.push(`MUAC is ${values.muac.toFixed(1)} cm, which is not flagged by the demo MUAC rule.`);
+
+  if (weightGap > 0.16) factors.push(`Weight is about ${Math.round(weightGap * 100)}% below the expected demo reference for age.`);
+  else if (weightGap > 0.08) factors.push(`Weight is slightly below the expected demo reference for age.`);
+
+  if (heightGap > 0.1) factors.push(`Height/length is below the expected demo growth reference for age.`);
+  if (values.temp >= 38) factors.push(`Temperature is ${values.temp.toFixed(1)} C, which is treated as fever in this screening simulation.`);
+  else if (values.temp >= 37.5) factors.push(`Temperature is ${values.temp.toFixed(1)} C, slightly elevated in this screening simulation.`);
+
+  if (values.heart > 130) factors.push(`Heart rate is ${Math.round(values.heart)} bpm, which is high for this demo screening context.`);
+  else if (values.heart > 115) factors.push(`Heart rate is ${Math.round(values.heart)} bpm, slightly elevated in this demo context.`);
+
+  if (values.spo2 < 94) factors.push(`SpO2 is ${Math.round(values.spo2)}%, which is low and increases the urgency signal.`);
+  else if (values.spo2 < 96) factors.push(`SpO2 is ${Math.round(values.spo2)}%, which is marked for observation.`);
+
+  if (values.activity < 0.55) factors.push("Activity level is low, adding a behavioral warning signal.");
+  else if (values.activity < 0.8) factors.push("Activity level is reduced, adding a mild behavioral warning signal.");
+
+  const copy = {
+    normal: ["Normal screening pattern", "The entered values do not activate major warning rules in this software simulation. Routine observation is recommended."],
+    moderate: ["Moderate risk explanation", "The entered values show warning signs that should be reviewed and rechecked by a health worker."],
+    high: ["High risk explanation", "The entered values activate strong warning rules. The dashboard recommends urgent professional review or referral."],
+  };
+
+  summary.classList.remove("moderate", "high");
+  if (result.level !== "normal") summary.classList.add(result.level);
+  title.textContent = copy[result.level][0];
+  text.textContent = `${copy[result.level][1]} Calculated screening score: ${Math.round(result.score)}.`;
+  factorsList.innerHTML = factors.map((factor) => `<li>${factor}</li>`).join("");
+}
+
 function updateSignal(id, state, label) {
   const signal = document.getElementById(id);
   signal.classList.remove("ok", "warn", "danger");
@@ -614,6 +659,7 @@ function applyCalculatorResult(result) {
 
   const chartBase = result.level === "high" ? [96, 101, 106, 110, 108, 115, 119, 121, 126, 130, 128, 134] : result.level === "moderate" ? [82, 86, 91, 88, 95, 92, 96, 101, 99, 103, 108, 105] : [74, 79, 76, 82, 80, 84, 81, 86, 83, 88, 85, 90];
   drawChart(chartBase, result.level);
+  renderScreeningSummary(result);
   renderMethodResults(result);
 }
 
